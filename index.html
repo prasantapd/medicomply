@@ -70,9 +70,11 @@
   --toggle-knob: #f0c060;
 
   /* Mobile side menu expanded dark theme: white glass */
-  --mobile-nav-glass-bg: rgba(255, 255, 255, 0.08);
+  --mobile-nav-glass-bg: rgba(255, 255, 255, 0.85);
   --mobile-nav-glass-blur: blur(25px) saturate(180%);
-  --mobile-nav-glass-border: 1px solid rgba(255, 255, 255, 0.15);
+  --mobile-nav-glass-border: 1px solid rgba(255, 255, 255, 0.4);
+  --mobile-nav-text: #080f1d; /* Dark text on white glass */
+  --mobile-nav-text-hover: #0d7b6e;
 }
 
 /* ═══════════════════════════════════════════
@@ -111,9 +113,11 @@
   --toggle-knob: #ffffff;
 
   /* Mobile side menu expanded light theme: black glass */
-  --mobile-nav-glass-bg: rgba(0, 0, 0, 0.75);
+  --mobile-nav-glass-bg: rgba(0, 0, 0, 0.85);
   --mobile-nav-glass-blur: blur(20px) saturate(140%);
-  --mobile-nav-glass-border: 1px solid rgba(0, 0, 0, 0.85);
+  --mobile-nav-glass-border: 1px solid rgba(0, 0, 0, 0.4);
+  --mobile-nav-text: #ffffff; /* Light text on black glass */
+  --mobile-nav-text-hover: #12a894;
 }
 
 /* ═══════════════════════════════════════════
@@ -147,7 +151,7 @@ img { display: block; max-width: 100%; }
    NAV
 ═══════════════════════════════════════════ */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1001; /* Keep nav above mobile drawer */
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 5vw;
   height: 68px;
@@ -218,68 +222,91 @@ nav {
 }
 .nav-cta:hover { background: var(--teal-light); transform: translateY(-1px); }
 
-/* Hamburger Menu with 3 Dashes */
+/* Hamburger Menu with 3 Dashes morphing to X */
 .hamburger {
-  display: none; flex-direction: column; justify-content: center;
-  gap: 5px; cursor: pointer; padding: 6px;
-  background: none; border: none;
-  width: 32px; height: 32px;
+  display: none; width: 28px; height: 20px; position: relative;
+  background: transparent; border: none; cursor: pointer; padding: 0;
+  z-index: 1002;
 }
 .hamburger span {
-  display: block; width: 22px; height: 2px;
-  background: var(--fg); border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  display: block; position: absolute; height: 2.5px; width: 100%;
+  background: var(--fg); border-radius: 3px; left: 0; opacity: 1;
+  transition: .3s ease-in-out;
 }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger span:nth-child(1) { top: 0px; }
+.hamburger span:nth-child(2) { top: 8.5px; }
+.hamburger span:nth-child(3) { top: 17px; }
 
-/* Mobile Drawer Side Menu with Smokey Glass Background */
+.hamburger.open span:nth-child(1) {
+  top: 8.5px; transform: rotate(135deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0; left: -20px;
+}
+.hamburger.open span:nth-child(3) {
+  top: 8.5px; transform: rotate(-135deg);
+}
+
+/* Mobile Overlay */
+.mobile-nav-overlay {
+  display: none;
+}
+
+/* Mobile Drawer Side Menu */
 .mobile-nav {
   display: none;
-  position: fixed; top: 68px; left: 0; right: 0; z-index: 190;
-  background: var(--bg-elevated);
-  border-bottom: 1px solid var(--border);
-  padding: 1.25rem 5vw 1.75rem;
-  transform: translateY(-8px); opacity: 0;
-  transition: transform 0.3s cubic-bezier(.25,1,.5,1), opacity 0.3s ease, background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
-  pointer-events: none;
-}
-.mobile-nav.open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: all;
-  background: var(--mobile-nav-glass-bg);
-  backdrop-filter: var(--mobile-nav-glass-blur);
-  -webkit-backdrop-filter: var(--mobile-nav-glass-blur);
-  border-bottom: var(--mobile-nav-glass-border);
 }
 
-/* Dynamic Text Colors inside Mobile Nav when Glass is Expanded */
-[data-theme="light"] .mobile-nav.open a {
-  color: #b2c4df;
-}
-[data-theme="light"] .mobile-nav.open a:hover, 
-[data-theme="light"] .mobile-nav.open a.active { 
-  color: #ffffff; 
-  background: rgba(255, 255, 255, 0.1); 
-}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  nav { padding: 0 4vw; gap: 0.5rem; }
+  .nav-right { gap: 0.5rem; }
 
-.mobile-nav ul { display: flex; flex-direction: column; gap: 0.25rem; }
-.mobile-nav a {
-  color: var(--fg-mid); display: block;
-  padding: 0.6rem 0.75rem; border-radius: 8px;
-  font-size: 0.95rem; font-weight: 500;
-  transition: color 0.2s, background 0.2s;
-}
-.mobile-nav a:hover, .mobile-nav a.active { color: var(--fg); background: var(--surface-md); }
-.mobile-nav-footer {
-  margin-top: 1.25rem; display: flex; gap: 0.75rem; align-items: center;
-}
-.mob-cta {
-  flex: 1; background: var(--teal); color: #fff !important;
-  text-align: center; padding: 0.75rem;
-  border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+  /* Drawer Overlay backdrop */
+  .mobile-nav-overlay {
+    display: block;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6); z-index: 999;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
+
+  /* Side Drawer Design */
+  .mobile-nav {
+    display: flex; flex-direction: column;
+    position: fixed; top: 0; right: 0; bottom: 0; left: auto;
+    width: 280px; max-width: 80vw;
+    z-index: 1000;
+    padding: 85px 1.5rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    background: var(--mobile-nav-glass-bg);
+    backdrop-filter: var(--mobile-nav-glass-blur);
+    -webkit-backdrop-filter: var(--mobile-nav-glass-blur);
+    border-left: var(--mobile-nav-glass-border);
+    border-bottom: none;
+    pointer-events: all;
+  }
+  .mobile-nav.open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav ul { display: flex; flex-direction: column; gap: 0.25rem; }
+  .mobile-nav a {
+    color: var(--mobile-nav-text); display: block;
+    padding: 0.8rem 1rem; border-radius: 8px;
+    font-size: 1.05rem; font-weight: 500;
+    transition: color 0.2s, background 0.2s;
+  }
+  .mobile-nav a:hover, .mobile-nav a.active { 
+    color: var(--mobile-nav-text-hover); 
+    background: rgba(128, 128, 128, 0.15); 
+  }
+  .mobile-nav-footer {
+    margin-top: 1.25rem; display: flex; gap: 0.75rem; align-items: center;
+  }
 }
 
 /* ═══════════════════════════════════════════
@@ -800,16 +827,6 @@ footer {
   .process-steps { grid-template-columns: 1fr 1fr; }
   .contact-inner { grid-template-columns: 1fr; }
 }
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .mobile-nav { display: block; }
-  .hero-stats { flex-direction: column; width: auto; border-radius: 12px; }
-  .stat-item + .stat-item::before { display: none; }
-  .stat-item { padding: 1rem 1.5rem; border-top: 1px solid var(--border); }
-  .stat-item:first-child { border-top: none; }
-  nav { padding: 0 4vw; }
-}
 @media (max-width: 560px) {
   section { padding: 4.5rem 4vw; }
   .process-steps { grid-template-columns: 1fr; }
@@ -853,6 +870,7 @@ footer {
   </div>
 </nav>
 
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
 <nav class="mobile-nav" id="mobileNav">
   <ul>
     <li><a href="#services">Services</a></li>
@@ -980,7 +998,7 @@ footer {
         <div class="why-num">02</div>
         <div class="why-text">
           <h4>Zero Penalty Guarantee</h4>
-          <div class="why-bn">ডেডলাইন কখনো মিস হবে না</div>
+          <div class="why-bn">ডেডলাইন কখনো মিস হবে মোহ</div>
           <p>Our proactive reminder system tracks all renewal dates. We initiate the process well in advance so deadlines are never missed.</p>
         </div>
       </div>
@@ -1261,17 +1279,25 @@ function showToast(msg, isError = false) {
   setTimeout(() => t.classList.remove('show'), 4000);
 }
 
-// ── HAMBURGER ─────────────────────────────────────────────
+// ── DRAWER MENU LOGIC ─────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');
-hamburger.addEventListener('click', () => {
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function toggleDrawer() {
   hamburger.classList.toggle('open');
   mobileNav.classList.toggle('open');
-});
+  mobileOverlay.classList.toggle('open');
+}
+
+hamburger.addEventListener('click', toggleDrawer);
+mobileOverlay.addEventListener('click', toggleDrawer);
+
 mobileNav.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     hamburger.classList.remove('open');
     mobileNav.classList.remove('open');
+    mobileOverlay.classList.remove('open');
   });
 });
 
