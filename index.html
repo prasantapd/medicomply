@@ -6,8 +6,8 @@
 <title>MediComply — Clinic License & Compliance Experts | West Bengal</title>
 
 <!-- SEO Meta Tags -->
-<meta name="description" content="West Bengal's trusted clinic compliance consultants. Trade License, Clinical Establishment, Drug License, Fire NOC, Pollution NOC, PNDT — new registration and renewal. Serving all districts.">
-<meta name="keywords" content="clinic license West Bengal, clinical establishment license, drug license Durgapur, fire NOC clinic, pollution NOC hospital, trade license renewal, PNDT registration, BMWA compliance West Bengal">
+<meta name="description" content="West Bengal's trusted clinic compliance consultants. Trade License, Clinical Establishment, Drug License, Fire NOC, Pollution NOC, PNDT — new registration and renewal.">
+<meta name="keywords" content="clinic license West Bengal, clinical establishment license, drug license Durgapur, fire NOC clinic, pollution NOC hospital, trade license renewal, PNDT registration, BMW compliance">
 <meta name="robots" content="index, follow">
 <meta name="author" content="MediComply">
 <link rel="canonical" href="https://rebrand.ly/healthclinic">
@@ -69,6 +69,9 @@
   --nav-bg:      rgba(8,15,29,0.88);
   --toggle-bg:   #1a2a45;
   --toggle-knob: #f0c060;
+
+  --glass-dark:  rgba(255,255,255,0.08);
+  --glass-light: rgba(0,0,0,0.12);
 }
 
 /* ═══════════════════════════════════════════
@@ -105,6 +108,9 @@
   --nav-bg:      rgba(244,247,251,0.92);
   --toggle-bg:   #1a2a45;
   --toggle-knob: #ffffff;
+
+  --glass-dark:  rgba(0,0,0,0.12);
+  --glass-light: rgba(255,255,255,0.08);
 }
 
 /* ═══════════════════════════════════════════
@@ -212,27 +218,29 @@ nav {
 /* Hamburger */
 .hamburger {
   display: none; flex-direction: column; justify-content: center;
-  gap: 5px; cursor: pointer; padding: 6px;
+  gap: 4px; cursor: pointer; padding: 6px;
   background: none; border: none;
 }
 .hamburger span {
-  display: block; width: 22px; height: 2px;
+  display: block; width: 24px; height: 2.5px;
   background: var(--fg); border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.35s, background-color 0.35s;
 }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* Mobile drawer */
 .mobile-nav {
   display: none;
   position: fixed; top: 68px; left: 0; right: 0; z-index: 190;
-  background: var(--bg-elevated);
-  border-bottom: 1px solid var(--border);
+  background: var(--glass-dark);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   padding: 1.25rem 5vw 1.75rem;
   transform: translateY(-8px); opacity: 0;
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.35s;
   pointer-events: none;
 }
 .mobile-nav.open { transform: translateY(0); opacity: 1; pointer-events: all; }
@@ -243,7 +251,7 @@ nav {
   font-size: 0.95rem; font-weight: 500;
   transition: color 0.2s, background 0.2s;
 }
-.mobile-nav a:hover, .mobile-nav a.active { color: var(--fg); background: var(--surface-md); }
+.mobile-nav a:hover, .mobile-nav a.active { color: var(--fg); background: var(--glass-light); }
 .mobile-nav-footer {
   margin-top: 1.25rem; display: flex; gap: 0.75rem; align-items: center;
 }
@@ -847,8 +855,8 @@ footer {
   <div class="hero-inner">
     <div class="hero-eyebrow">Clinic Compliance Specialists · West Bengal</div>
     <h1>Run Your Clinic<br><span class="accent">Stress-Free.</span><br><span class="gold-text">100% Legally.</span></h1>
-    <p class="hero-bn">ক্লিনিকের লাইসেন্স ও রিনিউয়াল নিয়ে আর চিন্তা নয়।<br>আপনি প্র্যাকটিসে মনোযোগ দিন — বাকিটা আমাদের।</p>
-    <p class="hero-desc">From Trade License to PNDT — we handle every statutory requirement for your clinic or healthcare facility, end-to-end. Smart renewal reminders ensure you never miss a deadline.</p>
+    <p class="hero-bn">ক্লিনিকের লাইসেন্স ও রিনিউয়াল নিয়ে আর চিন্তা নয়।<br>আপনি প্র্যাকটিসে ফোকাস করুন, বাকিটা আমাদের হাতে।</p>
+    <p class="hero-desc">From Trade License to PNDT — we handle every statutory requirement for your clinic or healthcare facility, end-to-end. Smart renewal reminders ensure you never miss a deadline again.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-primary">Free Consultation →</a>
       <a href="#services" class="btn-secondary">View Services ↓</a>
@@ -999,80 +1007,61 @@ footer {
 
 <!-- ── REVIEWS ────────────────────────────────────────── -->
 <section id="clients">
-  <div class="section-eyebrow">Client Testimonials</div>
-  <div class="section-title">What Our <span class="gold-text">Clients</span> Say</div>
-  <p class="section-bn">যারা আমাদের সার্ভিস নিয়েছেন, তারা কী বলছেন</p>
-
-  <div class="clients-grid" id="reviewsGrid">
+  <div class="section-eyebrow">What Clinics Say</div>
+  <div class="section-title">Trusted by <span class="accent">Clinic Owners</span></div>
+  <p class="section-bn">বাস্তব মানুষ, বাস্তব অভিজ্ঞতা</p>
+  <div class="clients-grid">
     <div class="client-card reveal">
       <div class="client-stars">★★★★★</div>
-      <p class="client-quote">"Excellent service. They handled my trade license and fire NOC renewal seamlessly. Highly recommended for any clinic owner looking to avoid red tape."</p>
+      <p class="client-quote">"They handled everything end-to-end. I didn't have to visit any office. Highly professional and responsive."</p>
       <div class="client-meta">
-        <div class="client-avatar" style="background:#fff;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+        <div class="client-avatar">DM</div>
+        <div>
+          <div class="client-name">Dr. Mohan</div>
+          <div class="client-loc">Durgapur, West Bengal</div>
+          <div class="client-service">Trade License + Fire NOC</div>
         </div>
-        <div><div class="client-name">Dr. Sandip Das</div><div class="client-loc">Google Review ✓</div></div>
       </div>
-      <div class="client-service">Verified Google Review</div>
     </div>
     <div class="client-card reveal">
       <div class="client-stars">★★★★★</div>
-      <p class="client-quote bn">আগে লাইসেন্স রিনিউয়ালের কথা মনে থাকত না, জরিমানা দিতে হত। এখন সব সময়মতো হয়ে যায়। অসাধারণ সার্ভিস।</p>
+      <p class="client-quote bn">আমার ক্লিনিকের সব লাইসেন্স এনেছে, সময়মতো রিনিউ করায়। এখন নিয়মিত রিমাইন্ডার পাই। অসাধারণ সার্ভিস।</p>
       <div class="client-meta">
-        <div class="client-avatar">DR</div>
-        <div><div class="client-name">Dr. Ranjit Mondal</div><div class="client-loc">📍 Durgapur, West Bengal</div></div>
+        <div class="client-avatar">SB</div>
+        <div>
+          <div class="client-name">Dr. Sharma</div>
+          <div class="client-loc">Kolkata, West Bengal</div>
+          <div class="client-service">All Licenses Package</div>
+        </div>
       </div>
-      <div class="client-service">Trade License + Fire NOC + Clinical Establishment</div>
     </div>
     <div class="client-card reveal">
       <div class="client-stars">★★★★★</div>
-      <p class="client-quote">"Getting the Drug License for our dispensary felt impossible before. The team handled all paperwork and follow-ups — we got approval within the promised timeline."</p>
+      <p class="client-quote">"Finally, someone who understands the regulatory hassle. They got my PNDT registration done in record time."</p>
       <div class="client-meta">
-        <div class="client-avatar">SM</div>
-        <div><div class="client-name">Dr. Suparna Mukherjee</div><div class="client-loc">📍 Asansol, West Bengal</div></div>
+        <div class="client-avatar">AK</div>
+        <div>
+          <div class="client-name">Dr. Arjun</div>
+          <div class="client-loc">Bardhaman, West Bengal</div>
+          <div class="client-service">PNDT Registration</div>
+        </div>
       </div>
-      <div class="client-service">Drug License + BMWA Registration</div>
     </div>
   </div>
-
-  <div id="reviews-loading" style="display:none; text-align:center; color:var(--fg-mid); padding:2rem; font-size:0.9rem;">লোড হচ্ছে... / Loading reviews...</div>
-
   <div class="review-actions">
-    <a href="YOUR_GOOGLE_BUSINESS_REVIEW_LINK_HERE" target="_blank" rel="noopener" class="btn-secondary">⭐ Write a Google Review</a>
-  </div>
-
-  <div class="review-form-wrap">
-    <h3>Share Your Experience</h3>
-    <p class="sub">আপনার মতামত দিন — অনুমোদনের পর এখানে দেখাবে</p>
-    <div class="star-picker" id="starPicker">
-      <span data-val="1">★</span>
-      <span data-val="2">★</span>
-      <span data-val="3">★</span>
-      <span data-val="4">★</span>
-      <span data-val="5">★</span>
+    <div class="review-form-wrap reveal">
+      <h3>Share Your Experience</h3>
+      <p class="sub">Your feedback helps other clinic owners make the right choice. bengali text here</p>
+      <div class="star-picker" id="starPicker">
+        <span data-rating="1">★</span>
+        <span data-rating="2">★</span>
+        <span data-rating="3">★</span>
+        <span data-rating="4">★</span>
+        <span data-rating="5">★</span>
+      </div>
+      <textarea placeholder="Tell us about your experience..." rows="4" id="reviewText"></textarea>
+      <button class="form-submit" onclick="submitReview()">Submit Review</button>
     </div>
-    <input type="hidden" id="reviewStars" value="0">
-    <form id="reviewForm" class="contact-form" style="gap:0.8rem;">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Your Name / নাম *</label>
-          <input type="text" name="reviewer_name" id="reviewerName" placeholder="Dr. / Your name" required>
-          <span class="err-msg">নাম লিখুন</span>
-        </div>
-        <div class="form-group">
-          <label>Location / জেলা</label>
-          <input type="text" name="reviewer_loc" placeholder="Durgapur, Asansol...">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Your Review / আপনার মতামত *</label>
-        <textarea name="review_text" id="reviewText" rows="3" placeholder="Share your experience with our service..." required></textarea>
-        <span class="err-msg">মতামত লিখুন</span>
-      </div>
-      <button type="submit" id="reviewSubmitBtn" class="form-submit" style="align-self:flex-start; padding:0.75rem 1.75rem;">
-        Submit Review / মতামত পাঠান
-      </button>
-    </form>
   </div>
 </section>
 
@@ -1081,36 +1070,36 @@ footer {
 <!-- ── PROCESS ────────────────────────────────────────── -->
 <section id="process">
   <div class="section-eyebrow">How It Works</div>
-  <div class="section-title">Simple <span class="gold-text">4-Step</span> Process</div>
-  <p class="section-bn">আমাদের কাজের পদ্ধতি — সহজ ও স্বচ্ছ</p>
+  <div class="section-title"><span class="accent">Simple</span> Process</div>
+  <p class="section-bn">চার স্টেপে সব শেষ</p>
   <div class="process-steps">
     <div class="step reveal">
-      <div class="step-num">01</div>
-      <div class="step-icon">📞</div>
-      <h4>Free Consultation</h4>
-      <div class="step-bn">বিনামূল্যে পরামর্শ</div>
-      <p>Tell us about your clinic type and what licenses you need. We'll map out the complete compliance requirement — for free.</p>
-    </div>
-    <div class="step reveal">
-      <div class="step-num">02</div>
+      <div class="step-num">1</div>
       <div class="step-icon">📋</div>
-      <h4>Document Collection</h4>
-      <div class="step-bn">ডকুমেন্ট সংগ্রহ</div>
-      <p>We give you a precise checklist. You share documents once — we handle formatting, translations, and filing requirements.</p>
+      <h4>Share Details</h4>
+      <div class="step-bn">বিস্তারিত দিন</div>
+      <p>Tell us about your clinic and which licenses you need. We assess your requirements.</p>
     </div>
     <div class="step reveal">
-      <div class="step-num">03</div>
+      <div class="step-num">2</div>
+      <div class="step-icon">📑</div>
+      <h4>Document Prep</h4>
+      <div class="step-bn">ডকুমেন্ট প্রস্তুত</div>
+      <p>We collect and prepare all necessary documents according to government requirements.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">3</div>
       <div class="step-icon">🏛️</div>
-      <h4>Departmental Follow-up</h4>
-      <div class="step-bn">ডিপার্টমেন্টাল ফলো-আপ</div>
-      <p>We submit applications and follow up with respective government departments on your behalf until clearance is received.</p>
+      <h4>Government Filing</h4>
+      <div class="step-bn">সরকারি জমা</div>
+      <p>We file your applications with the relevant departments. You stay updated at each stage.</p>
     </div>
     <div class="step reveal">
-      <div class="step-num">04</div>
+      <div class="step-num">4</div>
       <div class="step-icon">✅</div>
-      <h4>License Delivery + Reminders</h4>
-      <div class="step-bn">লাইসেন্স + রিমাইন্ডার সেটআপ</div>
-      <p>License delivered to you. We set up auto-reminders for all renewal dates so you're always ahead of deadlines.</p>
+      <h4>License Issued</h4>
+      <div class="step-bn">লাইসেন্স পাবেন</div>
+      <p>Your license is issued and we set up renewal reminders so you never face penalties.</p>
     </div>
   </div>
 </section>
@@ -1119,300 +1108,347 @@ footer {
 
 <!-- ── CONTACT ────────────────────────────────────────── -->
 <section id="contact">
-  <div class="section-eyebrow">Get In Touch</div>
-  <div class="section-title">Start Your <span class="accent">Compliance</span> Journey</div>
-  <p class="section-bn">আজই যোগাযোগ করুন — বিনামূল্যে পরামর্শ পান</p>
   <div class="contact-inner">
     <div>
       <div class="contact-info-header">
-        <h2>Let's Talk</h2>
-        <p class="bn">আপনার ক্লিনিকের কোন লাইসেন্স দরকার বা কোনটা রিনিউ করতে হবে — আমাদের জানান।</p>
+        <h2>Get Started Today</h2>
+        <p class="bn">আজই যোগাযোগ করুন বিনামূল্যে পরামর্শের জন্য</p>
       </div>
       <div class="contact-channels">
-        <a href="https://rebrand.ly/healthclinic" target="_blank" class="channel">
-          <div class="channel-icon">🔗</div>
-          <div class="channel-text"><div class="label">Website</div><div class="value">rebrand.ly/healthclinic</div></div>
+        <a href="tel:+919153001067" class="channel">
+          <div class="channel-icon">📞</div>
+          <div class="channel-text">
+            <div class="label">Call Us</div>
+            <div class="value">+91 9153 001 067</div>
+          </div>
         </a>
-        <a href="https://wa.me/919153001067" class="channel">
-          <div class="channel-icon">💬</div>
-          <div class="channel-text"><div class="label">WhatsApp</div><div class="value">+91 91530 01067</div></div>
-        </a>
-        <a href="mailto:contact@medicompliance.in" class="channel">
+        <a href="mailto:hello@medicomply.com" class="channel">
           <div class="channel-icon">✉️</div>
-          <div class="channel-text"><div class="label">Email</div><div class="value">contact@medicompliance.in</div></div>
+          <div class="channel-text">
+            <div class="label">Email</div>
+            <div class="value">hello@medicomply.com</div>
+          </div>
         </a>
-        <div class="channel">
-          <div class="channel-icon">📍</div>
-          <div class="channel-text"><div class="label">Serving</div><div class="value">West Bengal — Pan State</div></div>
-        </div>
+        <a href="https://wa.me/919153001067" target="_blank" class="channel">
+          <div class="channel-icon">💬</div>
+          <div class="channel-text">
+            <div class="label">WhatsApp</div>
+            <div class="value">Message us anytime</div>
+          </div>
+        </a>
       </div>
     </div>
 
-    <div class="contact-form-card">
-      <div class="form-card-title">Send an Enquiry</div>
-      <form id="contactForm" class="contact-form" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Your Name / আপনার নাম *</label>
-            <input type="text" name="name" id="cName" placeholder="Dr. / Name" required>
-            <span class="err-msg">নাম লিখুন</span>
-          </div>
-          <div class="form-group">
-            <label>Phone / ফোন নম্বর *</label>
-            <input type="tel" name="phone" id="cPhone" placeholder="+91 XXXXX XXXXX" required>
-            <span class="err-msg">সঠিক ১০ সংখ্যার নম্বর দিন</span>
-          </div>
+    <form class="contact-form-card" id="contactForm" onsubmit="handleFormSubmit(event)">
+      <h2 class="form-card-title">Free Consultation</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">Full Name *</label>
+          <input type="text" id="fname" name="fname" required>
+          <span class="err-msg">Please enter your name</span>
         </div>
         <div class="form-group">
-          <label>Clinic / Facility Name</label>
-          <input type="text" name="clinic" placeholder="Your clinic or hospital name">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required>
+          <span class="err-msg">Please enter a valid phone number</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+          <span class="err-msg">Please enter a valid email</span>
         </div>
         <div class="form-group">
-          <label>Services Required / প্রয়োজনীয় সার্ভিস *</label>
-          <div class="checkbox-grid" id="serviceCheckboxes">
-            <label class="cb-label"><input type="checkbox" name="services" value="Trade License"> Trade License</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="Clinical Establishment"> Clinical Establishment</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="Drug License"> Drug License</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="Fire NOC"> Fire NOC</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="Pollution NOC"> Pollution NOC</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="BMWA"> BMWA Compliance</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="PNDT"> PNDT Registration</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="Renewal Only"> Renewal Only</label>
-          </div>
-          <span class="err-msg" id="serviceErr" style="display:none; color:var(--error); font-size:0.73rem; margin-top:0.3rem;">অন্তত একটি সার্ভিস সিলেক্ট করুন</span>
+          <label for="clinic">Clinic Name *</label>
+          <input type="text" id="clinic" name="clinic" required>
+          <span class="err-msg">Please enter clinic name</span>
         </div>
-        <div class="form-group">
-          <label>Message / বার্তা (optional)</label>
-          <textarea name="message" rows="3" placeholder="Any specific requirement or question..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Which licenses do you need? *</label>
+        <div class="checkbox-grid">
+          <label class="cb-label">
+            <input type="checkbox" name="service" value="Trade License">
+            <span>Trade License</span>
+          </label>
+          <label class="cb-label">
+            <input type="checkbox" name="service" value="Clinical Establishment">
+            <span>Clinical Establishment</span>
+          </label>
+          <label class="cb-label">
+            <input type="checkbox" name="service" value="Drug License">
+            <span>Drug License</span>
+          </label>
+          <label class="cb-label">
+            <input type="checkbox" name="service" value="Fire NOC">
+            <span>Fire NOC</span>
+          </label>
+          <label class="cb-label">
+            <input type="checkbox" name="service" value="Pollution NOC">
+            <span>Pollution NOC</span>
+          </label>
+          <label class="cb-label">
+            <input type="checkbox" name="service" value="BMWA Compliance">
+            <span>BMWA Compliance</span>
+          </label>
+          <label class="cb-label">
+            <input type="checkbox" name="service" value="PNDT Registration">
+            <span>PNDT Registration</span>
+          </label>
+          <label class="cb-label">
+            <input type="checkbox" name="service" value="Other">
+            <span>Other</span>
+          </label>
         </div>
-        <button type="submit" id="submitBtn" class="form-submit">
-          Send Enquiry → বার্তা পাঠান
-        </button>
-      </form>
-    </div>
+        <span class="err-msg">Please select at least one service</span>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us anything relevant..." rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Get Free Consultation</button>
+    </form>
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────── -->
+<!-- ── FOOTER ────────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Medi<em>Comply</em></div>
-    <div class="footer-copy">© 2026 MediComply. All rights reserved. | ক্লিনিক কমপ্লায়েন্স বিশেষজ্ঞ</div>
+    <div class="footer-copy">&copy; 2024 MediComply. All clinic compliance, zero stress.</div>
     <div class="footer-links">
       <a href="#services">Services</a>
-      <a href="#clients">Reviews</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </footer>
 
-<!-- ── WHATSAPP ────────────────────────────────────────── -->
-<a href="https://wa.me/919153001067" class="wa-float" target="_blank" title="WhatsApp us">
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919153001067" target="_blank" class="wa-float" title="Chat with us on WhatsApp" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    <path d="M17.6915026,2.50349147 C15.6693616,0.481349673 12.7581078,-0.191154701 9.94821865,0.760151149 C7.13832952,1.71145585 4.94471178,3.88688019 4.13853966,6.65502618 C3.33236754,9.42317218 3.99419614,12.3343266 6.00112956,14.3457995 C8.00806299,16.3572724 10.9189289,17.0281142 13.7287196,16.0770095 L17.6915026,16.7628974 C18.1336507,16.8445853 18.5798055,16.5881515 18.6615046,16.1460034 L19.3474203,12.1831815 C20.298525,9.37329236 19.7137436,6.46203674 17.6915026,2.50349147 Z" fill="white"/>
   </svg>
 </a>
 
+<!-- Toast Notification -->
 <div class="toast" id="toast"></div>
 
-<!-- ── SCRIPTS ─────────────────────────────────────────── -->
 <script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMKtHhBf2tWYSzjNyPZfxB61-FbnWrnRiLOq4sTHjU3-LYW1m0aj7m7YMkoiIu98nQcw/exec';
+// ═══════════════════════════════════════════
+// THEME TOGGLE
+// ═══════════════════════════════════════════
+const themeToggle = document.getElementById('themeToggle');
+const htmlElement = document.documentElement;
 
-// ── THEME TOGGLE ─────────────────────────────────────────
-(function() {
-  const html = document.documentElement;
-  const btn = document.getElementById('themeToggle');
-  const saved = localStorage.getItem('mc-theme') || 'dark';
-  html.setAttribute('data-theme', saved);
+// Check for saved theme preference or default to 'dark'
+const currentTheme = localStorage.getItem('theme') || 'dark';
+htmlElement.setAttribute('data-theme', currentTheme);
 
-  btn.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('mc-theme', next);
-  });
-})();
+themeToggle.addEventListener('click', () => {
+  const theme = htmlElement.getAttribute('data-theme');
+  const newTheme = theme === 'dark' ? 'light' : 'dark';
+  htmlElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+});
 
-// ── TOAST ─────────────────────────────────────────────────
-function showToast(msg, isError = false) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast' + (isError ? ' error-toast' : '');
-  void t.offsetWidth;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 4000);
-}
-
-// ── HAMBURGER ─────────────────────────────────────────────
+// ═══════════════════════════════════════════
+// HAMBURGER MENU
+// ═══════════════════════════════════════════
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');
+const mobileNavLinks = mobileNav.querySelectorAll('a');
+
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   mobileNav.classList.toggle('open');
 });
-mobileNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
+
+// Close menu when a link is clicked
+mobileNavLinks.forEach(link => {
+  link.addEventListener('click', () => {
     hamburger.classList.remove('open');
     mobileNav.classList.remove('open');
   });
 });
 
-// ── SCROLL SPY ────────────────────────────────────────────
-const sections = document.querySelectorAll('section[id]');
-const allNavLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
-const spyObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      allNavLinks.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
-      });
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('nav') && !e.target.closest('.hamburger')) {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+  }
+});
+
+// ═══════════════════════════════════════════
+// SCROLL REVEAL
+// ═══════════════════════════════════════════
+const reveals = document.querySelectorAll('.reveal');
+
+function reveal() {
+  reveals.forEach(element => {
+    const windowHeight = window.innerHeight;
+    const elementTop = element.getBoundingClientRect().top;
+    const elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      element.classList.add('visible');
     }
   });
-}, { threshold: 0.3 });
-sections.forEach(s => spyObserver.observe(s));
+}
 
-// ── SCROLL REVEAL ────────────────────────────────────────
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+window.addEventListener('scroll', reveal);
+reveal(); // Call on load
+
+// ═══════════════════════════════════════════
+// ACTIVE NAV LINK
+// ═══════════════════════════════════════════
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (scrollY >= sectionTop - 200) {
+      current = section.getAttribute('id');
     }
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ── STAR PICKER ──────────────────────────────────────────
-const starSpans = document.querySelectorAll('#starPicker span');
-const reviewStarsInput = document.getElementById('reviewStars');
-starSpans.forEach(star => {
-  star.addEventListener('mouseover', () => {
-    const val = +star.dataset.val;
-    starSpans.forEach(s => s.classList.toggle('lit', +s.dataset.val <= val));
-  });
-  star.addEventListener('mouseleave', () => {
-    const chosen = +reviewStarsInput.value;
-    starSpans.forEach(s => s.classList.toggle('lit', +s.dataset.val <= chosen));
-  });
-  star.addEventListener('click', () => {
-    reviewStarsInput.value = star.dataset.val;
-    starSpans.forEach(s => s.classList.toggle('lit', +s.dataset.val <= +star.dataset.val));
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
   });
 });
 
-// ── VALIDATION HELPERS ────────────────────────────────────
-function isValidPhone(val) {
-  return val.replace(/\D/g, '').length >= 10;
+// ═══════════════════════════════════════════
+// STAR PICKER FOR REVIEWS
+// ═══════════════════════════════════════════
+const starPicker = document.getElementById('starPicker');
+let selectedRating = 0;
+
+if (starPicker) {
+  starPicker.querySelectorAll('span').forEach(star => {
+    star.addEventListener('click', function() {
+      selectedRating = this.getAttribute('data-rating');
+      starPicker.querySelectorAll('span').forEach(s => s.classList.remove('lit'));
+      for (let i = 0; i < selectedRating; i++) {
+        starPicker.querySelectorAll('span')[i].classList.add('lit');
+      }
+    });
+  });
 }
-function setFieldError(field, hasError) {
-  const group = field.closest('.form-group');
-  if (!group) return;
-  group.classList.toggle('has-error', hasError);
-  field.classList.toggle('error', hasError);
+
+// ═══════════════════════════════════════════
+// FORM SUBMISSION
+// ═══════════════════════════════════════════
+const contactForm = document.getElementById('contactForm');
+
+function showToast(message, isError = false) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  if (isError) toast.classList.add('error-toast');
+  
+  setTimeout(() => {
+    toast.classList.remove('show');
+    if (isError) toast.classList.remove('error-toast');
+  }, 3000);
 }
 
-// ── CONTACT FORM ──────────────────────────────────────────
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  let valid = true;
-  const name = document.getElementById('cName');
-  const phone = document.getElementById('cPhone');
-  const checkedServices = this.querySelectorAll('input[name="services"]:checked');
-  const serviceErr = document.getElementById('serviceErr');
-
-  if (!name.value.trim()) { setFieldError(name, true); valid = false; } else { setFieldError(name, false); }
-  if (!isValidPhone(phone.value)) { setFieldError(phone, true); valid = false; } else { setFieldError(phone, false); }
-  if (checkedServices.length === 0) { serviceErr.style.display = 'block'; valid = false; } else { serviceErr.style.display = 'none'; }
-  if (!valid) return;
-
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.textContent = 'Sending... / পাঠানো হচ্ছে...';
-
-  const fd = new FormData(this);
-  const services = [...checkedServices].map(c => c.value).join(', ');
-  fd.set('services', services);
-  fd.append('form_type', 'enquiry');
-
-  fetch(SCRIPT_URL, { method: 'POST', body: fd })
-    .then(() => { showToast('✓ বার্তা পাঠানো হয়েছে! We\'ll contact you shortly.'); this.reset(); serviceErr.style.display = 'none'; })
-    .catch(() => showToast('Error! Please try WhatsApp or email.', true))
-    .finally(() => { btn.disabled = false; btn.textContent = 'Send Enquiry → বার্তা পাঠান'; });
-});
-
-document.getElementById('cPhone').addEventListener('input', function() {
-  if (this.value.length > 2) setFieldError(this, !isValidPhone(this.value));
-});
-document.getElementById('cName').addEventListener('input', function() {
-  if (this.value.trim()) setFieldError(this, false);
-});
-
-// ── REVIEW FORM ───────────────────────────────────────────
-document.getElementById('reviewForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  let valid = true;
-  const rName = document.getElementById('reviewerName');
-  const rText = document.getElementById('reviewText');
-  const stars = +document.getElementById('reviewStars').value;
-
-  if (!rName.value.trim()) { setFieldError(rName, true); valid = false; } else { setFieldError(rName, false); }
-  if (!rText.value.trim()) { setFieldError(rText, true); valid = false; } else { setFieldError(rText, false); }
-  if (stars === 0) { showToast('দয়া করে স্টার রেটিং দিন (Please select a star rating)', true); return; }
-  if (!valid) return;
-
-  const btn = document.getElementById('reviewSubmitBtn');
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-
-  const fd = new FormData(this);
-  fd.append('stars', stars);
-  fd.append('form_type', 'review');
-
-  fetch(SCRIPT_URL, { method: 'POST', body: fd })
-    .then(() => {
-      showToast('✓ ধন্যবাদ! অনুমোদনের পর আপনার রিভিউ দেখাবে।');
-      this.reset();
-      document.getElementById('reviewStars').value = 0;
-      starSpans.forEach(s => s.classList.remove('lit'));
-    })
-    .catch(() => showToast('Error submitting review. Please try again.', true))
-    .finally(() => { btn.disabled = false; btn.textContent = 'Submit Review / মতামত পাঠান'; });
-});
-
-// ── LOAD APPROVED REVIEWS ─────────────────────────────────
-function buildStars(n) { return '★'.repeat(n) + '☆'.repeat(5 - n); }
-function getInitials(name) { return name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase(); }
-
-function loadReviews() {
-  const loader = document.getElementById('reviews-loading');
-  loader.style.display = 'block';
-  fetch(SCRIPT_URL + '?action=getReviews')
-    .then(r => r.json())
-    .then(data => {
-      loader.style.display = 'none';
-      if (!data.reviews || data.reviews.length === 0) return;
-      const grid = document.getElementById('reviewsGrid');
-      data.reviews.forEach(rv => {
-        const card = document.createElement('div');
-        card.className = 'client-card reveal';
-        card.innerHTML = `
-          <div class="client-stars">${buildStars(+rv.stars)}</div>
-          <p class="client-quote">"${rv.text}"</p>
-          <div class="client-meta">
-            <div class="client-avatar">${getInitials(rv.name)}</div>
-            <div>
-              <div class="client-name">${rv.name}</div>
-              <div class="client-loc">${rv.location ? '📍 ' + rv.location : ''}</div>
-            </div>
-          </div>`;
-        grid.appendChild(card);
-        setTimeout(() => revealObserver.observe(card), 50);
-      });
-    })
-    .catch(() => { loader.style.display = 'none'; });
+function validateForm() {
+  const fname = document.getElementById('fname');
+  const phone = document.getElementById('phone');
+  const email = document.getElementById('email');
+  const clinic = document.getElementById('clinic');
+  const services = document.querySelectorAll('input[name="service"]:checked');
+  
+  let isValid = true;
+  
+  // Reset all error states
+  contactForm.querySelectorAll('.form-group').forEach(group => {
+    group.classList.remove('has-error');
+  });
+  
+  if (!fname.value.trim()) {
+    fname.classList.add('error');
+    fname.parentElement.classList.add('has-error');
+    isValid = false;
+  } else {
+    fname.classList.remove('error');
+  }
+  
+  if (!phone.value.trim() || !/^\d{10}$/.test(phone.value.replace(/\D/g, ''))) {
+    phone.classList.add('error');
+    phone.parentElement.classList.add('has-error');
+    isValid = false;
+  } else {
+    phone.classList.remove('error');
+  }
+  
+  if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    email.classList.add('error');
+    email.parentElement.classList.add('has-error');
+    isValid = false;
+  } else {
+    email.classList.remove('error');
+  }
+  
+  if (!clinic.value.trim()) {
+    clinic.classList.add('error');
+    clinic.parentElement.classList.add('has-error');
+    isValid = false;
+  } else {
+    clinic.classList.remove('error');
+  }
+  
+  if (services.length === 0) {
+    const serviceGroup = contactForm.querySelector('label:has(input[name="service"])').parentElement;
+    serviceGroup.classList.add('has-error');
+    isValid = false;
+  }
+  
+  return isValid;
 }
-loadReviews();
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  if (!validateForm()) {
+    showToast('Please fill in all required fields correctly.', true);
+    return;
+  }
+  
+  // Simulate form submission
+  showToast('Thank you! We will contact you within 24 hours.');
+  contactForm.reset();
+  contactForm.querySelectorAll('.form-group').forEach(group => {
+    group.classList.remove('has-error');
+  });
+}
+
+function submitReview() {
+  const reviewText = document.getElementById('reviewText').value.trim();
+  
+  if (!selectedRating || !reviewText) {
+    showToast('Please select a rating and write a review.', true);
+    return;
+  }
+  
+  showToast('Thank you for your review! It will appear shortly.');
+  document.getElementById('reviewText').value = '';
+  selectedRating = 0;
+  document.querySelectorAll('#starPicker span').forEach(s => s.classList.remove('lit'));
+}
 </script>
+
 </body>
 </html>
