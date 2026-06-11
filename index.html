@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>MediComply — Clinic License & Compliance Experts | West Bengal</title>
 
 <meta name="description" content="West Bengal's trusted clinic compliance consultants. Trade License, Clinical Establishment, Drug License, Fire NOC, Pollution NOC, PNDT — new registration and renewal. Serving all districts.">
@@ -121,12 +121,13 @@
    RESET + BASE
 ═══════════════════════════════════════════ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; max-width: 100vw; }
 body {
   font-family: 'Inter', 'Hind Siliguri', system-ui, sans-serif;
   background: var(--bg);
   color: var(--fg);
   overflow-x: hidden;
+  max-width: 100vw;
   transition: background 0.35s ease, color 0.35s ease;
   -webkit-font-smoothing: antialiased;
 }
@@ -157,12 +158,14 @@ nav {
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   border-bottom: 1px solid var(--border);
   transition: background 0.35s, border-color 0.35s;
+  width: 100%;
 }
 
 .nav-logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.35rem; font-weight: 700;
   letter-spacing: -0.01em; color: var(--fg);
+  flex-shrink: 0;
 }
 .nav-logo em { font-style: normal; color: var(--teal-light); }
 
@@ -178,7 +181,7 @@ nav {
 .nav-links a:hover,
 .nav-links a.active { color: var(--fg); background: var(--surface-md); }
 
-.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
 
 /* ── Theme toggle ── */
 .theme-toggle {
@@ -221,27 +224,27 @@ nav {
 
 /* Hamburger Menu with expanded touch target and larger dashes */
 .hamburger {
-  display: none; width: 48px; height: 48px; position: relative;
+  display: none; width: 44px; height: 44px; position: relative;
   background: transparent; border: none; cursor: pointer; padding: 0;
-  z-index: 1002;
+  z-index: 1002; flex-shrink: 0;
 }
 .hamburger span {
-  display: block; position: absolute; height: 4px; width: 34px;
-  background: var(--fg); border-radius: 4px; left: 7px; opacity: 1;
+  display: block; position: absolute; height: 4px; width: 32px;
+  background: var(--fg); border-radius: 4px; left: 6px; opacity: 1;
   transition: .3s ease-in-out;
 }
-.hamburger span:nth-child(1) { top: 13px; }
-.hamburger span:nth-child(2) { top: 22px; }
-.hamburger span:nth-child(3) { top: 31px; }
+.hamburger span:nth-child(1) { top: 12px; }
+.hamburger span:nth-child(2) { top: 20px; }
+.hamburger span:nth-child(3) { top: 28px; }
 
 .hamburger.open span:nth-child(1) {
-  top: 22px; transform: rotate(135deg);
+  top: 20px; transform: rotate(135deg);
 }
 .hamburger.open span:nth-child(2) {
   opacity: 0; left: -20px;
 }
 .hamburger.open span:nth-child(3) {
-  top: 22px; transform: rotate(-135deg);
+  top: 20px; transform: rotate(-135deg);
 }
 
 /* Mobile Overlay */
@@ -255,10 +258,11 @@ nav {
 }
 
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .nav-links, .nav-cta { display: none; } /* Hidden to prevent horizontal overflow */
   .hamburger { display: block; }
   nav { padding: 0 4vw; gap: 0.5rem; }
   .nav-right { gap: 0.5rem; }
+  .nav-logo { font-size: 1.2rem; }
 
   /* Drawer Overlay backdrop */
   .mobile-nav-overlay {
@@ -313,6 +317,7 @@ nav {
   min-height: 100vh; display: flex; align-items: center;
   padding: 9rem 5vw 6rem;
   position: relative; overflow: hidden;
+  width: 100%;
 }
 .hero-bg-glow {
   position: absolute; top: 0; right: -10%; width: 65vw; height: 80vh;
@@ -334,18 +339,19 @@ nav {
 }
 @media (min-width: 1100px) { .hero::before { display: block; } }
 
-.hero-inner { max-width: 720px; position: relative; z-index: 2; }
+.hero-inner { max-width: 720px; position: relative; z-index: 2; width: 100%; }
 
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: var(--surface-md);
   border: 1px solid var(--border-md);
-  color: var(--teal-light); padding: 0.35rem 1rem;
+  color: var(--teal-light); padding: 0.4rem 1rem;
   border-radius: 99px; font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem;
+  max-width: 100%; white-space: normal; line-height: 1.4; box-sizing: border-box;
 }
 .hero-eyebrow::before {
-  content: ''; display: block;
+  content: ''; display: block; flex-shrink: 0;
   width: 7px; height: 7px; border-radius: 50%;
   background: var(--teal-light);
   animation: blink 2s infinite;
@@ -359,6 +365,7 @@ nav {
   letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
   color: var(--fg);
+  word-wrap: break-word;
 }
 .hero h1 .accent { color: var(--teal-light); font-style: italic; }
 .hero h1 .gold-text { color: var(--gold-light); }
@@ -401,6 +408,7 @@ nav {
   border-radius: 14px; overflow: hidden;
   background: var(--surface);
   width: fit-content;
+  max-width: 100%;
 }
 .stat-item {
   padding: 1.25rem 2.5rem; text-align: center;
@@ -420,7 +428,7 @@ nav {
 /* ═══════════════════════════════════════════
    SECTION SHARED
 ═══════════════════════════════════════════ */
-section { padding: 6.5rem 5vw; scroll-margin-top: 68px; }
+section { padding: 6.5rem 5vw; scroll-margin-top: 68px; width: 100%; box-sizing: border-box; }
 .section-eyebrow {
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
@@ -600,7 +608,7 @@ section { padding: 6.5rem 5vw; scroll-margin-top: 68px; }
   margin-top: 3rem;
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: 16px; padding: 2rem;
-  max-width: 700px;
+  max-width: 700px; width: 100%; box-sizing: border-box;
 }
 [data-theme="light"] .review-form-wrap { box-shadow: var(--shadow-sm); }
 .review-form-wrap h3 {
@@ -691,6 +699,7 @@ section { padding: 6.5rem 5vw; scroll-margin-top: 68px; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 20px; padding: 2rem;
+  width: 100%; box-sizing: border-box;
 }
 [data-theme="light"] .contact-form-card { box-shadow: var(--shadow-md); }
 .form-card-title {
@@ -698,7 +707,7 @@ section { padding: 6.5rem 5vw; scroll-margin-top: 68px; }
   font-size: 1.25rem; color: var(--fg); margin-bottom: 1.5rem; font-weight: 700;
 }
 
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
 .form-group label {
@@ -714,7 +723,7 @@ section { padding: 6.5rem 5vw; scroll-margin-top: 68px; }
   color: var(--fg); font-size: 0.9rem;
   font-family: 'Inter', 'Hind Siliguri', sans-serif;
   outline: none; transition: border-color 0.2s, box-shadow 0.2s;
-  resize: vertical;
+  resize: vertical; width: 100%; box-sizing: border-box;
 }
 .form-group input:focus,
 .form-group select:focus,
@@ -823,6 +832,12 @@ footer {
   .why-visual { position: relative; top: auto; }
   .process-steps { grid-template-columns: 1fr 1fr; }
   .contact-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .hero-stats { flex-direction: column; width: 100%; border-radius: 12px; }
+  .stat-item + .stat-item::before { display: none; }
+  .stat-item { padding: 1rem 1.5rem; border-top: 1px solid var(--border); }
+  .stat-item:first-child { border-top: none; }
 }
 @media (max-width: 560px) {
   section { padding: 4.5rem 4vw; }
@@ -1077,7 +1092,7 @@ footer {
   <div id="reviews-loading" style="display:none; text-align:center; color:var(--fg-mid); padding:2rem; font-size:0.9rem;">লোড হচ্ছে... / Loading reviews...</div>
 
   <div class="review-actions">
-    <a href="YOUR_GOOGLE_BUSINESS_REVIEW_LINK_HERE" target="_blank" rel="noopener" class="btn-secondary">⭐ Write a Google Review</a>
+    <a href="#" target="_blank" rel="noopener" class="btn-secondary">⭐ Write a Google Review</a>
   </div>
 
   <div class="review-form-wrap">
