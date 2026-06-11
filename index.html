@@ -9,12 +9,10 @@
 <meta name="keywords" content="clinic license West Bengal, clinical establishment license, drug license Durgapur, fire NOC clinic, pollution NOC hospital, trade license renewal, PNDT registration, BMWA compliance West Bengal">
 <meta name="robots" content="index, follow">
 <meta name="author" content="MediComply">
-<link rel="canonical" href="https://rebrand.ly/healthclinic">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="MediComply — Clinic License & Compliance Experts">
 <meta property="og:description" content="Trade License, Clinical Establishment, Drug License, Fire NOC, Pollution NOC & more. End-to-end compliance for West Bengal clinics.">
-<meta property="og:url" content="https://rebrand.ly/healthclinic">
 <meta property="og:locale" content="en_IN">
 
 <script type="application/ld+json">
@@ -23,7 +21,6 @@
   "@type": "LocalBusiness",
   "name": "MediComply",
   "description": "Clinic licensing and compliance consultants in West Bengal",
-  "url": "https://rebrand.ly/healthclinic",
   "telephone": "+919153001067",
   "areaServed": "West Bengal, India",
   "serviceType": ["Trade License", "Clinical Establishment License", "Drug License", "Fire NOC", "Pollution NOC", "PNDT Registration", "BMWA Compliance"]
@@ -73,7 +70,7 @@
   --mobile-nav-glass-bg: rgba(255, 255, 255, 0.85);
   --mobile-nav-glass-blur: blur(25px) saturate(180%);
   --mobile-nav-glass-border: 1px solid rgba(255, 255, 255, 0.4);
-  --mobile-nav-text: #080f1d; /* Dark text on white glass */
+  --mobile-nav-text: #080f1d;
   --mobile-nav-text-hover: #0d7b6e;
 }
 
@@ -116,7 +113,7 @@
   --mobile-nav-glass-bg: rgba(0, 0, 0, 0.85);
   --mobile-nav-glass-blur: blur(20px) saturate(140%);
   --mobile-nav-glass-border: 1px solid rgba(0, 0, 0, 0.4);
-  --mobile-nav-text: #ffffff; /* Light text on black glass */
+  --mobile-nav-text: #ffffff;
   --mobile-nav-text-hover: #12a894;
 }
 
@@ -151,7 +148,7 @@ img { display: block; max-width: 100%; }
    NAV
 ═══════════════════════════════════════════ */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1001; /* Keep nav above mobile drawer */
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1001;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 5vw;
   height: 68px;
@@ -222,29 +219,29 @@ nav {
 }
 .nav-cta:hover { background: var(--teal-light); transform: translateY(-1px); }
 
-/* Hamburger Menu with 3 Dashes morphing to X */
+/* Hamburger Menu with expanded touch target */
 .hamburger {
-  display: none; width: 28px; height: 20px; position: relative;
+  display: none; width: 44px; height: 44px; position: relative;
   background: transparent; border: none; cursor: pointer; padding: 0;
   z-index: 1002;
 }
 .hamburger span {
-  display: block; position: absolute; height: 2.5px; width: 100%;
-  background: var(--fg); border-radius: 3px; left: 0; opacity: 1;
+  display: block; position: absolute; height: 3px; width: 28px;
+  background: var(--fg); border-radius: 3px; left: 8px; opacity: 1;
   transition: .3s ease-in-out;
 }
-.hamburger span:nth-child(1) { top: 0px; }
-.hamburger span:nth-child(2) { top: 8.5px; }
-.hamburger span:nth-child(3) { top: 17px; }
+.hamburger span:nth-child(1) { top: 13px; }
+.hamburger span:nth-child(2) { top: 20.5px; }
+.hamburger span:nth-child(3) { top: 28px; }
 
 .hamburger.open span:nth-child(1) {
-  top: 8.5px; transform: rotate(135deg);
+  top: 20.5px; transform: rotate(135deg);
 }
 .hamburger.open span:nth-child(2) {
   opacity: 0; left: -20px;
 }
 .hamburger.open span:nth-child(3) {
-  top: 8.5px; transform: rotate(-135deg);
+  top: 20.5px; transform: rotate(-135deg);
 }
 
 /* Mobile Overlay */
@@ -423,7 +420,7 @@ nav {
 /* ═══════════════════════════════════════════
    SECTION SHARED
 ═══════════════════════════════════════════ */
-section { padding: 6.5rem 5vw; }
+section { padding: 6.5rem 5vw; scroll-margin-top: 68px; }
 .section-eyebrow {
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
@@ -829,6 +826,8 @@ footer {
 }
 @media (max-width: 560px) {
   section { padding: 4.5rem 4vw; }
+  .contact-inner { gap: 1.5rem; }
+  .contact-info-header .bn { margin-bottom: 1rem; }
   .process-steps { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .checkbox-grid { grid-template-columns: 1fr; }
@@ -998,7 +997,7 @@ footer {
         <div class="why-num">02</div>
         <div class="why-text">
           <h4>Zero Penalty Guarantee</h4>
-          <div class="why-bn">ডেডলাইন কখনো মিস হবে মোহ</div>
+          <div class="why-bn">ডেডলাইন কখনো মিস হবে না</div>
           <p>Our proactive reminder system tracks all renewal dates. We initiate the process well in advance so deadlines are never missed.</p>
         </div>
       </div>
@@ -1167,10 +1166,6 @@ footer {
         <p class="bn">আপনার ক্লিনিকের কোন লাইসেন্স দরকার বা কোনটা রিনিউ করতে হবে — আমাদের জানান।</p>
       </div>
       <div class="contact-channels">
-        <a href="https://rebrand.ly/healthclinic" target="_blank" class="channel">
-          <div class="channel-icon">🔗</div>
-          <div class="channel-text"><div class="label">Website</div><div class="value">rebrand.ly/healthclinic</div></div>
-        </a>
         <a href="https://wa.me/919153001067" class="channel">
           <div class="channel-icon">💬</div>
           <div class="channel-text"><div class="label">WhatsApp</div><div class="value">+91 91530 01067</div></div>
@@ -1196,14 +1191,46 @@ footer {
             <span class="err-msg">নাম লিখুন</span>
           </div>
           <div class="form-group">
-            <label>Phone / ফোন নম্বর *</label>
-            <input type="tel" name="phone" id="cPhone" placeholder="+91 XXXXX XXXXX" required>
-            <span class="err-msg">সঠিক ১০ সংখ্যার নম্বর দিন</span>
+            <label>Clinic / Facility Name</label>
+            <input type="text" name="clinic" placeholder="Your clinic or hospital name">
           </div>
         </div>
-        <div class="form-group">
-          <label>Clinic / Facility Name</label>
-          <input type="text" name="clinic" placeholder="Your clinic or hospital name">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone / ফোন নম্বর *</label>
+            <input type="tel" name="phone" id="cPhone" placeholder="10 Digits" maxlength="10" required>
+            <span class="err-msg">সঠিক ১০ সংখ্যার নম্বর দিন</span>
+          </div>
+          <div class="form-group">
+            <label>District / জেলা *</label>
+            <input type="text" id="cDistrict" list="wb_districts" placeholder="Type to select" autocomplete="off" required>
+            <datalist id="wb_districts">
+              <option value="Alipurduar"></option>
+              <option value="Bankura"></option>
+              <option value="Birbhum"></option>
+              <option value="Cooch Behar"></option>
+              <option value="Dakshin Dinajpur"></option>
+              <option value="Darjeeling"></option>
+              <option value="Hooghly"></option>
+              <option value="Howrah"></option>
+              <option value="Jalpaiguri"></option>
+              <option value="Jhargram"></option>
+              <option value="Kalimpong"></option>
+              <option value="Kolkata"></option>
+              <option value="Malda"></option>
+              <option value="Murshidabad"></option>
+              <option value="Nadia"></option>
+              <option value="North 24 Parganas"></option>
+              <option value="Paschim Bardhaman"></option>
+              <option value="Paschim Medinipur"></option>
+              <option value="Purba Bardhaman"></option>
+              <option value="Purba Medinipur"></option>
+              <option value="Purulia"></option>
+              <option value="South 24 Parganas"></option>
+              <option value="Uttar Dinajpur"></option>
+            </datalist>
+            <span class="err-msg">জেলা নির্বাচন করুন</span>
+          </div>
         </div>
         <div class="form-group">
           <label>Services Required / প্রয়োজনীয় সার্ভিস *</label>
@@ -1346,7 +1373,7 @@ starSpans.forEach(star => {
 
 // ── VALIDATION HELPERS ────────────────────────────────────
 function isValidPhone(val) {
-  return val.replace(/\D/g, '').length >= 10;
+  return val.replace(/\D/g, '').length === 10;
 }
 function setFieldError(field, hasError) {
   const group = field.closest('.form-group');
@@ -1356,17 +1383,37 @@ function setFieldError(field, hasError) {
 }
 
 // ── CONTACT FORM ──────────────────────────────────────────
+document.getElementById('cPhone').addEventListener('input', function() {
+  this.value = this.value.replace(/\D/g, '').substring(0, 10);
+  if (this.value.length > 0) {
+    setFieldError(this, !isValidPhone(this.value));
+  } else {
+    setFieldError(this, false);
+  }
+});
+
+document.getElementById('cName').addEventListener('input', function() {
+  if (this.value.trim()) setFieldError(this, false);
+});
+
+document.getElementById('cDistrict').addEventListener('input', function() {
+  if (this.value.trim()) setFieldError(this, false);
+});
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
   let valid = true;
   const name = document.getElementById('cName');
   const phone = document.getElementById('cPhone');
+  const district = document.getElementById('cDistrict');
   const checkedServices = this.querySelectorAll('input[name="services"]:checked');
   const serviceErr = document.getElementById('serviceErr');
 
   if (!name.value.trim()) { setFieldError(name, true); valid = false; } else { setFieldError(name, false); }
   if (!isValidPhone(phone.value)) { setFieldError(phone, true); valid = false; } else { setFieldError(phone, false); }
+  if (!district.value.trim()) { setFieldError(district, true); valid = false; } else { setFieldError(district, false); }
   if (checkedServices.length === 0) { serviceErr.style.display = 'block'; valid = false; } else { serviceErr.style.display = 'none'; }
+  
   if (!valid) return;
 
   const btn = document.getElementById('submitBtn');
@@ -1376,19 +1423,15 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   const fd = new FormData(this);
   const services = [...checkedServices].map(c => c.value).join(', ');
   fd.set('services', services);
+  
+  // Combine Phone + District so it populates existing Google Sheets column without requiring a new one
+  fd.set('phone', phone.value + ' ' + district.value);
   fd.append('form_type', 'enquiry');
 
   fetch(SCRIPT_URL, { method: 'POST', body: fd })
     .then(() => { showToast('✓ বার্তা পাঠানো হয়েছে! We\'ll contact you shortly.'); this.reset(); serviceErr.style.display = 'none'; })
     .catch(() => showToast('Error! Please try WhatsApp or email.', true))
     .finally(() => { btn.disabled = false; btn.textContent = 'Send Enquiry → বার্তা পাঠান'; });
-});
-
-document.getElementById('cPhone').addEventListener('input', function() {
-  if (this.value.length > 2) setFieldError(this, !isValidPhone(this.value));
-});
-document.getElementById('cName').addEventListener('input', function() {
-  if (this.value.trim()) setFieldError(this, false);
 });
 
 // ── REVIEW FORM ───────────────────────────────────────────
