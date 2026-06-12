@@ -741,7 +741,7 @@ input::placeholder, textarea::placeholder { color: var(--fg-muted); }
 
 /* Checkbox grid */
 .checkbox-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.4rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.4rem; align-items: start;
 }
 .cb-label {
   display: flex; align-items: center; gap: 0.6rem;
@@ -757,6 +757,23 @@ input::placeholder, textarea::placeholder { color: var(--fg-muted); }
   border-color: rgba(13,123,110,0.45);
   background: var(--teal-glow); color: var(--fg);
 }
+
+/* Nested checkboxes */
+.checkbox-wrapper { display: flex; flex-direction: column; width: 100%; }
+.sub-checkbox-wrapper { display: flex; flex-direction: column; width: 100%; }
+.sub-checkboxes {
+  display: none; flex-direction: column; gap: 0.4rem; margin-top: 0.4rem;
+  padding-left: 0.75rem; border-left: 2px solid var(--border-md); margin-left: 0.5rem;
+}
+.sub-sub-checkboxes {
+  display: none; flex-direction: column; gap: 0.4rem; margin-top: 0.4rem;
+  padding-left: 0.75rem; border-left: 2px solid var(--border-md); margin-left: 0.5rem;
+}
+.checkbox-wrapper:has(> .parent-cb input:checked) > .sub-checkboxes { display: flex; }
+.sub-checkbox-wrapper:has(> .sub-parent-cb input:checked) > .sub-sub-checkboxes { display: flex; }
+
+.sub-checkboxes .cb-label { font-size: 0.75rem; padding: 0.4rem 0.6rem; }
+.sub-sub-checkboxes .cb-label { font-size: 0.7rem; padding: 0.3rem 0.5rem; }
 
 .form-submit {
   background: linear-gradient(135deg, var(--teal), var(--teal-light));
@@ -1012,7 +1029,7 @@ footer {
         <div class="why-num">02</div>
         <div class="why-text">
           <h4>Zero Penalty Guarantee</h4>
-          <div class="why-bn">ডেডলাইন কখনো মিস হবে না</div>
+          <div class="why-bn">ডেডলাইন কখনো মিস হবে অ্যাকা</div>
           <p>Our proactive reminder system tracks all renewal dates. We initiate the process well in advance so deadlines are never missed.</p>
         </div>
       </div>
@@ -1251,12 +1268,68 @@ footer {
           <label>Services Required / প্রয়োজনীয় সার্ভিস *</label>
           <div class="checkbox-grid" id="serviceCheckboxes">
             <label class="cb-label"><input type="checkbox" name="services" value="Trade License"> Trade License</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="Clinical Establishment"> Clinical Establishment</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="Drug License"> Drug License</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="Fire NOC"> Fire NOC</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="Pollution NOC"> Pollution NOC</label>
+            
+            <div class="checkbox-wrapper">
+              <label class="cb-label parent-cb"><input type="checkbox" name="services" value="Clinical Establishment"> Clinical Establishment</label>
+              <div class="sub-checkboxes">
+                <label class="cb-label"><input type="checkbox" value="OPD"> OPD</label>
+                <label class="cb-label"><input type="checkbox" value="Dental Clinic"> Dental Clinic</label>
+                <label class="cb-label"><input type="checkbox" value="Pathology Collection Centre"> Pathology Collection Centre</label>
+                <label class="cb-label"><input type="checkbox" value="Pathology Lab"> Pathology Lab</label>
+                <label class="cb-label"><input type="checkbox" value="Radiology Clinic"> Radiology Clinic</label>
+                <label class="cb-label"><input type="checkbox" value="Nursing Home"> Nursing Home</label>
+                <label class="cb-label"><input type="checkbox" value="Hospital"> Hospital</label>
+                <label class="cb-label"><input type="checkbox" value="Eye Clinic"> Eye Clinic</label>
+                <label class="cb-label"><input type="checkbox" value="Eye Hospital"> Eye Hospital</label>
+              </div>
+            </div>
+
+            <div class="checkbox-wrapper">
+              <label class="cb-label parent-cb"><input type="checkbox" name="services" value="Drug License"> Drug License</label>
+              <div class="sub-checkboxes">
+                <label class="cb-label"><input type="checkbox" value="Retail"> Retail</label>
+                <label class="cb-label"><input type="checkbox" value="Wholesale"> Wholesale</label>
+              </div>
+            </div>
+
+            <div class="checkbox-wrapper">
+              <label class="cb-label parent-cb"><input type="checkbox" name="services" value="Fire NOC"> Fire NOC</label>
+              <div class="sub-checkboxes">
+                <label class="cb-label"><input type="checkbox" value="FIRE Safety Recommendation"> FIRE Safety Recommendation</label>
+                <label class="cb-label"><input type="checkbox" value="Fire Safety Certificate"> Fire Safety Certificate</label>
+                <label class="cb-label"><input type="checkbox" value="Fire License"> Fire License</label>
+              </div>
+            </div>
+
+            <div class="checkbox-wrapper">
+              <label class="cb-label parent-cb"><input type="checkbox" name="services" value="Pollution NOC"> Pollution NOC</label>
+              <div class="sub-checkboxes">
+                <label class="cb-label"><input type="checkbox" value="Consent to Establish"> Consent to Establish</label>
+                <label class="cb-label"><input type="checkbox" value="CTE Extension"> CTE Extension</label>
+                <label class="cb-label"><input type="checkbox" value="Consent to operate"> Consent to operate</label>
+              </div>
+            </div>
+
             <label class="cb-label"><input type="checkbox" name="services" value="BMWA"> BMWA Compliance</label>
-            <label class="cb-label"><input type="checkbox" name="services" value="PNDT"> PNDT Registration</label>
+
+            <div class="checkbox-wrapper">
+              <label class="cb-label parent-cb"><input type="checkbox" name="services" value="PNDT"> PNDT Registration</label>
+              <div class="sub-checkboxes">
+                <label class="cb-label"><input type="checkbox" value="New Registration"> New Registration</label>
+                
+                <div class="sub-checkbox-wrapper">
+                  <label class="cb-label sub-parent-cb"><input type="checkbox" value="Post License Application"> Post License Application</label>
+                  <div class="sub-sub-checkboxes">
+                    <label class="cb-label"><input type="checkbox" value="Machine inclusion/Exclusion"> Machine inclusion/Exclusion</label>
+                    <label class="cb-label"><input type="checkbox" value="HR inclusion Exclusion"> HR inclusion Exclusion</label>
+                  </div>
+                </div>
+
+                <label class="cb-label"><input type="checkbox" value="NOC application"> NOC application</label>
+                <label class="cb-label"><input type="checkbox" value="Renewal"> Renewal</label>
+              </div>
+            </div>
+
             <label class="cb-label"><input type="checkbox" name="services" value="Renewal Only"> Renewal Only</label>
           </div>
           <span class="err-msg" id="serviceErr" style="display:none; color:var(--error); font-size:0.73rem; margin-top:0.3rem;">অন্তত একটি সার্ভিস সিলেক্ট করুন</span>
@@ -1436,7 +1509,47 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   btn.textContent = 'Sending... / পাঠানো হচ্ছে...';
 
   const fd = new FormData(this);
-  const services = [...checkedServices].map(c => c.value).join(', ');
+  
+  // Aggregate nested checkbox values
+  let finalServices = [];
+  checkedServices.forEach(parentCb => {
+    let serviceStr = parentCb.value;
+    const wrapper = parentCb.closest('.checkbox-wrapper');
+    
+    if (wrapper) {
+      let subArr = [];
+      const subsContainer = wrapper.querySelector('.sub-checkboxes');
+      
+      if (subsContainer) {
+        const allSubs = Array.from(subsContainer.querySelectorAll('input[type="checkbox"]:checked'));
+        allSubs.forEach(cb => {
+          // Skip if this checkbox belongs to level 3 (sub-sub), it gets processed via its parent
+          if (cb.closest('.sub-sub-checkboxes')) return;
+
+          const subWrapper = cb.closest('.sub-checkbox-wrapper');
+          if (subWrapper && subWrapper.querySelector('.sub-parent-cb input') === cb) {
+            let subStr = cb.value;
+            const subSubsContainer = subWrapper.querySelector('.sub-sub-checkboxes');
+            if (subSubsContainer) {
+              const level3Cbs = Array.from(subSubsContainer.querySelectorAll('input[type="checkbox"]:checked'));
+              if (level3Cbs.length > 0) {
+                subStr += " [" + level3Cbs.map(l3 => l3.value).join(', ') + "]";
+              }
+            }
+            subArr.push(subStr);
+          } else {
+            subArr.push(cb.value);
+          }
+        });
+      }
+      if (subArr.length > 0) {
+        serviceStr += " (" + subArr.join(', ') + ")";
+      }
+    }
+    finalServices.push(serviceStr);
+  });
+
+  const services = finalServices.join(' | ');
   fd.set('services', services);
   
   // Combine Phone + District so it populates existing Google Sheets column without requiring a new one
@@ -1459,7 +1572,7 @@ document.getElementById('reviewForm').addEventListener('submit', function(e) {
 
   if (!rName.value.trim()) { setFieldError(rName, true); valid = false; } else { setFieldError(rName, false); }
   if (!rText.value.trim()) { setFieldError(rText, true); valid = false; } else { setFieldError(rText, false); }
-  if (stars === 0) { showToast('দয়া করে স্টার রেটিং দিন (Please select a star rating)', true); return; }
+  if (stars === 0) { showToast('দয়া করে স্টার রেটিং দিন (Please select a star rating)', true); return; }
   if (!valid) return;
 
   const btn = document.getElementById('reviewSubmitBtn');
