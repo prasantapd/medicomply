@@ -1267,7 +1267,15 @@ footer {
         <div class="form-group">
           <label>Services Required / প্রয়োজনীয় সার্ভিস *</label>
           <div class="checkbox-grid" id="serviceCheckboxes">
-            <label class="cb-label"><input type="checkbox" name="services" value="Trade License"> Trade License</label>
+            
+            <div class="checkbox-wrapper">
+              <label class="cb-label parent-cb"><input type="checkbox" name="services" value="Trade License"> Trade License</label>
+              <div class="sub-checkboxes">
+                <label class="cb-label"><input type="checkbox" value="New"> New</label>
+                <label class="cb-label"><input type="checkbox" value="Renewal"> Renewal</label>
+                <label class="cb-label"><input type="checkbox" value="Not sure"> Not sure</label>
+              </div>
+            </div>
             
             <div class="checkbox-wrapper">
               <label class="cb-label parent-cb"><input type="checkbox" name="services" value="Clinical Establishment"> Clinical Establishment</label>
@@ -1281,6 +1289,7 @@ footer {
                 <label class="cb-label"><input type="checkbox" value="Hospital"> Hospital</label>
                 <label class="cb-label"><input type="checkbox" value="Eye Clinic"> Eye Clinic</label>
                 <label class="cb-label"><input type="checkbox" value="Eye Hospital"> Eye Hospital</label>
+                <label class="cb-label"><input type="checkbox" value="Not sure"> Not sure</label>
               </div>
             </div>
 
@@ -1289,6 +1298,7 @@ footer {
               <div class="sub-checkboxes">
                 <label class="cb-label"><input type="checkbox" value="Retail"> Retail</label>
                 <label class="cb-label"><input type="checkbox" value="Wholesale"> Wholesale</label>
+                <label class="cb-label"><input type="checkbox" value="Not sure"> Not sure</label>
               </div>
             </div>
 
@@ -1298,6 +1308,7 @@ footer {
                 <label class="cb-label"><input type="checkbox" value="FIRE Safety Recommendation"> FIRE Safety Recommendation</label>
                 <label class="cb-label"><input type="checkbox" value="Fire Safety Certificate"> Fire Safety Certificate</label>
                 <label class="cb-label"><input type="checkbox" value="Fire License"> Fire License</label>
+                <label class="cb-label"><input type="checkbox" value="Not sure"> Not sure</label>
               </div>
             </div>
 
@@ -1307,6 +1318,7 @@ footer {
                 <label class="cb-label"><input type="checkbox" value="Consent to Establish"> Consent to Establish</label>
                 <label class="cb-label"><input type="checkbox" value="CTE Extension"> CTE Extension</label>
                 <label class="cb-label"><input type="checkbox" value="Consent to operate"> Consent to operate</label>
+                <label class="cb-label"><input type="checkbox" value="Not sure"> Not sure</label>
               </div>
             </div>
 
@@ -1327,10 +1339,17 @@ footer {
 
                 <label class="cb-label"><input type="checkbox" value="NOC application"> NOC application</label>
                 <label class="cb-label"><input type="checkbox" value="Renewal"> Renewal</label>
+                <label class="cb-label"><input type="checkbox" value="Not sure"> Not sure</label>
               </div>
             </div>
 
             <label class="cb-label"><input type="checkbox" name="services" value="Renewal Only"> Renewal Only</label>
+            
+            <label class="cb-label"><input type="checkbox" name="services" value="Website creation"> Website creation</label>
+            <label class="cb-label"><input type="checkbox" name="services" value="Online Booking"> Online Booking</label>
+            <label class="cb-label"><input type="checkbox" name="services" value="Mobile App development"> Mobile App development</label>
+            <label class="cb-label"><input type="checkbox" name="services" value="HR Management Software"> HR Management Software</label>
+
           </div>
           <span class="err-msg" id="serviceErr" style="display:none; color:var(--error); font-size:0.73rem; margin-top:0.3rem;">অন্তত একটি সার্ভিস সিলেক্ট করুন</span>
         </div>
